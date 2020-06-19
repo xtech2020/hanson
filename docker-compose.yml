@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+    hanson:
+        image: xtech2020/hanson:latest
+        container_name: "hanson"
+        tty: true
+        ports:
+            - "9999:80"
+        networks:
+            - defnet
+networks:
+    defnet:
+        external: true
