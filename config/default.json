@@ -1,0 +1,8 @@
+{
+	"PORT": 9999,
+    "DB":{
+		"URL": "mongodb://mongo:27017/",
+	    "NAME": "testDB",
+		"COL_LIST": "testlist"
+	}
+}

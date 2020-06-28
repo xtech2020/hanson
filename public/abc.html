@@ -4,9 +4,32 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href='./css/bootstrap.css'>
 		<script src='./js/jquery3.5.1.js'></script>
-        <script src='./js/bootstrap.bundle.js'></script>
+		<script src='./js/bootstrap.bundle.js'></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#button1").click(function() {
+					$.ajax({
+						url:"http://localhost:9999/api",
+						type:"POST",
+						data:$("#form1").serialize(), 
+                    	dataType:"json", 
+                    	timespan:1000
+					}).done(function(data, textStatus, jqXHR) {
+						// $("#readdata").text(data[0]["data"]);
+						$("#readdata").text(JSON.stringify(data));
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+						$("#readdata").text("fail");
+					}).always(function(){
+					})
+				});
+			});
+		</script>
 	</head>
 	<body>
-		<p>makimaki</p>
+		<form id="form1">
+			<input type="text" name="name" value="key1" maxlength="10">
+			<input type="button" id="button1" value="検索">
+		</form>
+		<span id="readdata"></span>
 	</body>
 </html>
